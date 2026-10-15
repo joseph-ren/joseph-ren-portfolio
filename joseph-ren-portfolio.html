@@ -1,0 +1,1187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Joseph Ren | My Portfolio</title>
+  <meta name="description" content="My portfolio featuring education, experience, skills, projects, leadership, LinkedIn, and resume links.">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #172026;
+      --muted: #5e6b73;
+      --paper: #f7f5ef;
+      --panel: #ffffff;
+      --line: #d9ded8;
+      --teal: #126b68;
+      --teal-2: #0e4f4c;
+      --coral: #c95338;
+      --gold: #c49a3a;
+      --sky: #dcebf0;
+      --shadow: 0 20px 50px rgba(23, 32, 38, .13);
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        linear-gradient(180deg, rgba(220, 235, 240, .76), rgba(247, 245, 239, 0) 440px),
+        var(--paper);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .shell {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(247, 245, 239, .82);
+      border-bottom: 1px solid rgba(23, 32, 38, .09);
+    }
+
+    .nav {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: linear-gradient(135deg, var(--teal), var(--coral));
+      box-shadow: 0 10px 24px rgba(18, 107, 104, .25);
+      font-size: 14px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 14px;
+      color: var(--muted);
+      padding: 8px 10px;
+      border-radius: 8px;
+    }
+
+    .nav-links a:hover {
+      color: var(--ink);
+      background: rgba(18, 107, 104, .08);
+    }
+
+    .hero {
+      min-height: calc(100vh - 68px);
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 36px;
+      align-items: center;
+      padding: 64px 0 42px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 18px;
+      color: var(--teal-2);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      background: var(--coral);
+    }
+
+    h1, h2, h3, p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin-bottom: 22px;
+      font-size: clamp(46px, 8vw, 92px);
+      line-height: .92;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      max-width: 660px;
+      color: #304049;
+      font-size: 20px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 46px;
+      padding: 0 17px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      text-decoration: none;
+      font-weight: 800;
+      background: var(--panel);
+      box-shadow: 0 10px 22px rgba(23, 32, 38, .08);
+    }
+
+    .button.primary {
+      color: #fff;
+      border-color: var(--teal);
+      background: var(--teal);
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+    }
+
+    .resume-note {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .visual {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .hero-portrait {
+      position: relative;
+      width: 190px;
+      height: 190px;
+      flex: 0 0 190px;
+      object-fit: cover;
+      object-position: center 26%;
+      border: 5px solid #fff;
+      border-radius: 50%;
+      background: #e8eeeb;
+      box-shadow: var(--shadow);
+    }
+
+    .visual::after {
+      display: none;
+    }
+
+    #signalCanvas {
+      display: none;
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      opacity: .22;
+    }
+
+    .portrait-card {
+      position: relative;
+      z-index: 2;
+      inset: auto;
+      width: 100%;
+      padding: 22px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .84);
+      border: 1px solid rgba(255, 255, 255, .74);
+      box-shadow: 0 18px 40px rgba(23, 32, 38, .14);
+      backdrop-filter: blur(18px);
+    }
+
+    .portrait-card h2 {
+      margin-bottom: 6px;
+      font-size: 26px;
+      line-height: 1.1;
+    }
+
+    .portrait-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .quick-facts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .fact {
+      min-height: 84px;
+      padding: 14px;
+      border-radius: 8px;
+      background: rgba(247, 245, 239, .86);
+      border: 1px solid rgba(23, 32, 38, .08);
+    }
+
+    .fact strong {
+      display: block;
+      font-size: 20px;
+      line-height: 1.1;
+      color: var(--teal-2);
+    }
+
+    .fact span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    main {
+      padding-bottom: 70px;
+    }
+
+    section {
+      padding: 58px 0;
+      border-top: 1px solid rgba(23, 32, 38, .1);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 36px;
+      align-items: start;
+      margin-bottom: 28px;
+    }
+
+    .section-kicker {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--coral);
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .section-icon,
+    .mini-icon {
+      display: inline-grid;
+      place-items: center;
+      color: var(--teal-2);
+    }
+
+    .section-icon svg {
+      width: 20px;
+      height: 20px;
+      stroke-width: 2.2;
+    }
+
+    .mini-icon {
+      width: 28px;
+      height: 28px;
+      margin-right: 8px;
+      vertical-align: -5px;
+      border-radius: 8px;
+      background: rgba(18, 107, 104, .1);
+    }
+
+    .mini-icon svg {
+      width: 17px;
+      height: 17px;
+      stroke-width: 2.2;
+    }
+
+    h2 {
+      font-size: clamp(28px, 4vw, 46px);
+      line-height: 1.05;
+      letter-spacing: 0;
+      margin-bottom: 12px;
+    }
+
+    .lead {
+      max-width: 760px;
+      color: #405059;
+      font-size: 18px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid.three {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card {
+      min-height: 100%;
+      padding: 22px;
+      border-radius: 8px;
+      background: var(--panel);
+      border: 1px solid rgba(23, 32, 38, .1);
+      box-shadow: 0 12px 28px rgba(23, 32, 38, .07);
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+      font-size: 21px;
+      line-height: 1.2;
+    }
+
+    .card p {
+      color: var(--muted);
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 0 10px;
+      border-radius: 8px;
+      color: var(--teal-2);
+      background: rgba(18, 107, 104, .09);
+      font-size: 13px;
+      font-weight: 750;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 18px;
+      padding: 22px;
+      border-radius: 8px;
+      background: var(--panel);
+      border: 1px solid rgba(23, 32, 38, .1);
+    }
+
+    .date {
+      color: var(--teal-2);
+      font-weight: 850;
+      font-size: 14px;
+    }
+
+    .timeline-item h3 {
+      margin-bottom: 6px;
+      font-size: 22px;
+    }
+
+    .timeline-item ul {
+      margin: 12px 0 0;
+      padding-left: 19px;
+      color: var(--muted);
+    }
+
+    .professional-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .professional-gallery figure,
+    .hobby-photo {
+      margin: 0;
+      overflow: hidden;
+      border-radius: 8px;
+      border: 1px solid rgba(23, 32, 38, .1);
+      background: #edf1ef;
+    }
+
+    .professional-gallery img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      object-position: center 30%;
+    }
+
+    .professional-gallery figcaption {
+      display: none;
+    }
+
+    .hobby-grid {
+      display: grid;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .hobby-block {
+      display: grid;
+      grid-template-columns: 235px minmax(0, 1fr);
+      column-gap: 24px;
+      align-items: center;
+      min-width: 0;
+    }
+
+    .hobby-copy {
+      grid-column: 1;
+    }
+
+    .hobby-block h3 {
+      margin: 14px 0 6px;
+      font-size: 22px;
+    }
+
+    .hobby-block p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .photo-mosaic {
+      display: grid;
+      grid-column: 2;
+      grid-row: 1;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      grid-auto-rows: 190px;
+      gap: 8px;
+    }
+
+    .hobby-photo {
+      display: block;
+    }
+
+    .hobby-photo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .cooking .hobby-photo:first-child img {
+      object-position: center 18%;
+    }
+
+    .volunteering .hobby-photo img {
+      object-position: center 34%;
+    }
+
+    .volunteering .photo-mosaic {
+      grid-column: 1;
+      grid-template-columns: 1fr;
+      grid-auto-rows: 300px;
+    }
+
+    .volunteering .hobby-copy {
+      grid-column: 2;
+    }
+
+    .placeholder {
+      border: 1px dashed rgba(18, 107, 104, .4);
+      background: rgba(255, 255, 255, .62);
+    }
+
+    .placeholder-label {
+      display: inline-flex;
+      margin-bottom: 10px;
+      padding: 4px 8px;
+      border-radius: 8px;
+      color: #7d4a17;
+      background: rgba(196, 154, 58, .16);
+      font-size: 12px;
+      font-weight: 850;
+      text-transform: uppercase;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding: 0 13px;
+      border-radius: 8px;
+      background: #fff;
+      border: 1px solid rgba(23, 32, 38, .1);
+      box-shadow: 0 8px 20px rgba(23, 32, 38, .06);
+      font-weight: 800;
+      color: #26343b;
+    }
+
+    .contact-band {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+      padding: 32px;
+      border-radius: 8px;
+      color: #fff;
+      background:
+        linear-gradient(135deg, rgba(18, 107, 104, .96), rgba(23, 32, 38, .94)),
+        var(--teal);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-band p {
+      max-width: 720px;
+      margin-bottom: 0;
+      color: rgba(255, 255, 255, .82);
+    }
+
+    .contact-band .button {
+      color: var(--ink);
+      background: #fff;
+      border-color: #fff;
+      box-shadow: none;
+    }
+
+    footer {
+      padding: 28px 0 44px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 860px) {
+      .shell {
+        width: min(100% - 28px, 720px);
+      }
+
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 14px 0;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+      }
+
+      .hero,
+      .section-head,
+      .grid.two,
+      .grid.three,
+      .contact-band {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 42px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+      }
+
+      .visual {
+        align-items: flex-start;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+      }
+
+      .quick-facts {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+    @media (max-width: 520px) {
+      h1 {
+        font-size: 44px;
+      }
+
+      .hero-copy {
+        font-size: 18px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .visual {
+        align-items: flex-start;
+      }
+
+      .professional-gallery {
+        gap: 10px;
+      }
+
+      .professional-gallery img {
+        aspect-ratio: 1 / 1;
+      }
+
+      .hobby-block,
+      .volunteering {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .hobby-copy,
+      .volunteering .hobby-copy,
+      .photo-mosaic,
+      .volunteering .photo-mosaic {
+        grid-column: 1;
+        grid-row: auto;
+      }
+
+      .photo-mosaic {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-auto-rows: 190px;
+      }
+
+      .volunteering .photo-mosaic {
+        width: min(300px, 100%);
+        grid-auto-rows: 400px;
+      }
+
+      .actions,
+      .contact-band .actions {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .portrait-card {
+        inset: auto 14px 14px 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="shell nav" aria-label="Primary navigation">
+      <a class="brand" href="#top" aria-label="Home">
+        <span class="brand-mark">JR</span>
+        <span>Joseph Ren</span>
+      </a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#hobbies">Hobbies</a>
+        <a href="#interests">Community</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <div class="shell hero">
+      <div>
+        <p class="eyebrow">Student and early-career portfolio</p>
+        <h1>Joseph Ren</h1>
+        <p class="hero-copy">
+          Mathematics and business student at the University of Waterloo and Wilfrid Laurier
+          University, with experience turning data into operational, marketing, and business insights.
+        </p>
+        <div class="actions">
+          <a class="button primary" href="https://www.linkedin.com/in/joseph-ren/" target="_blank" rel="noreferrer">My LinkedIn</a>
+          <a class="button" href="./Joseph_Ren_Resume_Cycle_2.pdf">Resume PDF</a>
+          <a class="button" href="#contact">Contact</a>
+        </div>
+        <p class="resume-note">
+          Open to connecting about data, business, and early-career opportunities.
+        </p>
+      </div>
+
+      <aside class="visual" aria-label="Animated portfolio visual">
+        <img class="hero-portrait" src="assets/headshot.jpg" alt="Joseph Ren in professional attire">
+        <canvas id="signalCanvas"></canvas>
+        <div class="portrait-card">
+          <h2>Data-minded. Business-aware. Ready to build.</h2>
+          <p>Combining analytical work, digital marketing, and practical product building.</p>
+          <div class="quick-facts">
+            <div class="fact">
+              <strong>1.2M</strong>
+              <span>records analyzed</span>
+            </div>
+            <div class="fact">
+              <strong>50K+</strong>
+              <span>social impressions</span>
+            </div>
+            <div class="fact">
+              <strong>36K</strong>
+              <span>obsolete items removed</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <section id="about">
+      <div class="shell">
+        <div class="section-head">
+          <div class="section-kicker">About</div>
+          <div>
+            <h2>Professional introduction</h2>
+            <p class="lead">
+              I'm a Candidate for a Bachelor of Mathematics at the University of Waterloo and a
+              Candidate for a BBA at Wilfrid Laurier University, both expected in August 2028.
+              My experience spans cataloguing data analysis, digital marketing, client development,
+              and campus operations.
+            </p>
+          </div>
+        </div>
+        <div class="grid two">
+          <article class="card">
+            <h3>What I bring</h3>
+            <p>
+              I work at the intersection of data, business operations, and digital growth.
+              I've analyzed large datasets, built reporting workflows, researched international markets,
+              and developed a full-stack search application in a hackathon setting.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Online presence</h3>
+            <p>
+              My LinkedIn profile is available at
+              <a href="https://www.linkedin.com/in/joseph-ren/" target="_blank" rel="noreferrer">linkedin.com/in/joseph-ren</a>.
+            </p>
+            <div class="tag-row">
+              <span class="tag">LinkedIn</span>
+              <span class="tag">GitHub</span>
+              <span class="tag">Waterloo, ON</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="shell">
+        <div class="section-head">
+          <div class="section-kicker">Education</div>
+          <div>
+            <h2>Academic background</h2>
+            <p class="lead">
+              A dual academic foundation in mathematics and business, both based in Waterloo, Ontario.
+            </p>
+          </div>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="date">Expected Aug 2028</div>
+            <div>
+              <h3>University of Waterloo</h3>
+              <p>Candidate for Bachelor of Mathematics</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="date">Expected Aug 2028</div>
+            <div>
+              <h3>Wilfrid Laurier University</h3>
+              <p>Candidate for BBA</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="shell">
+        <div class="section-head">
+          <div class="section-kicker">
+            <span class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="7" width="18" height="13" rx="2"></rect><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><path d="M3 12h18"></path></svg></span>
+            Experience
+          </div>
+          <div>
+            <h2>Work and co-op experience</h2>
+            <p class="lead">
+              Experience across analytics, digital marketing, business development, and campus operations.
+            </p>
+          </div>
+        </div>
+        <div class="professional-gallery" aria-label="Professional portraits">
+          <figure>
+            <img src="assets/professional-portrait.jpg" alt="Joseph Ren in professional attire outdoors" loading="lazy" decoding="async">
+            <figcaption>Professional presence</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/professional-event.jpg" alt="Joseph Ren at a formal event" loading="lazy" decoding="async">
+            <figcaption>Professional events</figcaption>
+          </figure>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="date">Jan - Apr 2026</div>
+            <div>
+              <h3>Cataloguing Data Analyst</h3>
+              <p>University of Waterloo, Waterloo, ON</p>
+              <ul>
+                <li>Analyzed 1.2M records in Oracle Analytics to identify trends that informed resource allocation and asset decisions.</li>
+                <li>Built Excel reports on item viability for long-term planning and removed 36K obsolete items through quantitative analysis.</li>
+                <li>Identified information gaps and developed AI-assisted Copilot solutions to improve data quality.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="date">Jan - Apr 2025</div>
+            <div>
+              <h3>Digital Marketing Intern</h3>
+              <p>Codan (Canada) Inc., Toronto, ON</p>
+              <ul>
+                <li>Analyzed campaign performance in Excel, Google Ads, and SEMrush to identify opportunities.</li>
+                <li>Coordinated deadlines and progress across 12 initiatives while balancing competing priorities.</li>
+                <li>Researched 1,200+ international clients and generated 50K+ social impressions through tested content and design strategies.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="date">May - Aug 2024</div>
+            <div>
+              <h3>Business and Marketing Specialist</h3>
+              <p>JLW Inc., Markham, ON</p>
+              <ul>
+                <li>Researched prospects through ZoomInfo and LinkedIn to prioritize higher-potential leads.</li>
+                <li>Won 2-3 new clients weekly by engaging 70+ daily customers through consultative pitching and B2B sales.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="date">May - Aug 2026</div>
+            <div>
+              <h3>Library Circulation Worker</h3>
+              <p>University of Waterloo, Waterloo, ON</p>
+              <ul>
+                <li>Routed holds across 28 libraries and organized a 200-item hold shelf for accurate transfers and patron requests.</li>
+                <li>Shelved approximately 70 books per shift while correcting misplaced inventory locations.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="shell">
+        <div class="section-head">
+          <div class="section-kicker">Skills</div>
+          <div>
+            <h2>Capabilities</h2>
+            <p class="lead">
+              Tools and methods I use across analytics, marketing, and product work.
+            </p>
+          </div>
+        </div>
+        <div class="grid three">
+          <article class="card">
+            <h3>Data and productivity</h3>
+            <div class="skills">
+              <span class="skill">Excel</span>
+              <span class="skill">XLOOKUP</span>
+              <span class="skill">VLOOKUP</span>
+              <span class="skill">PivotTables</span>
+              <span class="skill">SUMIF</span>
+              <span class="skill">COUNTIF</span>
+              <span class="skill">AVERAGEIF</span>
+              <span class="skill">NPV</span>
+              <span class="skill">Oracle Analytics</span>
+            </div>
+          </article>
+          <article class="card">
+            <h3>Programming and tools</h3>
+            <div class="skills">
+              <span class="skill">Python</span>
+              <span class="skill">Flask</span>
+              <span class="skill">Next.js</span>
+              <span class="skill">Gemini API</span>
+              <span class="skill">Copilot</span>
+              <span class="skill">SQL</span>
+              <span class="skill">R</span>
+            </div>
+          </article>
+          <article class="card">
+            <h3>Marketing and research</h3>
+            <div class="skills">
+              <span class="skill">Google Ads</span>
+              <span class="skill">SEMrush</span>
+              <span class="skill">Lead research</span>
+              <span class="skill">B2B sales</span>
+              <span class="skill">Content strategy</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="shell">
+        <div class="section-head">
+          <div class="section-kicker">
+            <span class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m8 9-3 3 3 3"></path><path d="m16 9 3 3-3 3"></path><path d="m14 5-4 14"></path></svg></span>
+            Projects
+          </div>
+          <div>
+            <h2>Projects and achievements</h2>
+            <p class="lead">
+              Selected work that pairs practical delivery with measurable results.
+            </p>
+          </div>
+        </div>
+        <div class="grid three">
+          <article class="card">
+            <span class="placeholder-label">UW Data Science Hackathon - Feb 2026</span>
+            <h3>AI Sublet Finder</h3>
+            <p>Built a full-stack sublet search app under a hackathon deadline, translating user requirements into filtering logic, frontend workflows, and backend integrations.</p>
+            <div class="tag-row">
+              <span class="tag">Python</span>
+              <span class="tag">Flask</span>
+              <span class="tag">Next.js</span>
+              <span class="tag">Gemini API</span>
+            </div>
+          </article>
+          <article class="card">
+            <span class="placeholder-label">NEXUS Case Competition - Nov 2025</span>
+            <h3>Retail revival strategy</h3>
+            <p>Secured third place with a retail revival strategy for Conestoga Mall, combining a thrifting model with a university-union marketing campaign to drive foot traffic, sales, and long-term Gen Z loyalty.</p>
+            <div class="tag-row">
+              <span class="tag">3rd place</span>
+              <span class="tag">Retail strategy</span>
+              <span class="tag">Gen Z</span>
+            </div>
+          </article>
+          <article class="card">
+            <span class="placeholder-label">Content Creator - May 2026 - Present</span>
+            <h3>Faith-based storytelling @joes_faith_diary</h3>
+            <p>Creates reflection and storytelling reels for a Christian-content audience, using strategic hooks and video elements to build reach across platforms.</p>
+            <div class="tag-row">
+              <span class="tag">26K+ impressions</span>
+              <span class="tag">5K+ viewers</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="hobbies">
+      <div class="shell">
+        <div class="section-head">
+          <div class="section-kicker">Beyond work</div>
+          <div>
+            <h2>Hobbies and interests</h2>
+            <p class="lead">
+              Cooking, travel, and community volunteering bring a practical, curious perspective beyond the classroom and workplace.
+            </p>
+          </div>
+        </div>
+        <div class="hobby-grid">
+          <article class="hobby-block cooking">
+            <div class="hobby-copy">
+              <h3>Cooking</h3>
+              <p>I love experimenting with new recipes, from weeknight meals to dishes shared with friends.</p>
+            </div>
+            <div class="photo-mosaic" aria-label="Cooking photos">
+              <figure class="hobby-photo"><img src="assets/cooking-kitchen.jpg" alt="Joseph Ren holding a home-cooked meal" loading="lazy" decoding="async"></figure>
+              <figure class="hobby-photo"><img src="assets/cooking-dish-one.jpg" alt="Home-cooked gnocchi dish" loading="lazy" decoding="async"></figure>
+              <figure class="hobby-photo"><img src="assets/cooking-dish-two.jpg" alt="Home-cooked rice and beef dish" loading="lazy" decoding="async"></figure>
+              <figure class="hobby-photo"><img src="assets/cooking-dish-three.jpg" alt="Home-cooked bowl meal" loading="lazy" decoding="async"></figure>
+              <figure class="hobby-photo"><img src="assets/cooking-dessert.jpg" alt="Dessert at a restaurant" loading="lazy" decoding="async"></figure>
+            </div>
+          </article>
+
+          <article class="hobby-block travel">
+            <div class="hobby-copy">
+              <h3>Travel and exploration</h3>
+              <p>I'm an avid traveller and love exploring sights across North America and Asia.</p>
+            </div>
+            <div class="photo-mosaic" aria-label="Travel photos">
+              <figure class="hobby-photo"><img src="assets/travel-china-library.jpg" alt="Joseph Ren visiting a historic building in China" loading="lazy" decoding="async"></figure>
+              <figure class="hobby-photo"><img src="assets/travel-china-landmark.jpg" alt="Joseph Ren at a landmark in China" loading="lazy" decoding="async"></figure>
+              <figure class="hobby-photo"><img src="assets/travel-nyc-skyline.jpg" alt="New York City skyline" loading="lazy" decoding="async"></figure>
+              <figure class="hobby-photo"><img src="assets/travel-times-square.jpg" alt="Joseph Ren in Times Square" loading="lazy" decoding="async"></figure>
+              <figure class="hobby-photo"><img src="assets/travel-bridge.jpg" alt="Joseph Ren on a bridge in New York City" loading="lazy" decoding="async"></figure>
+            </div>
+          </article>
+
+          <article class="hobby-block volunteering">
+            <div class="hobby-copy">
+              <h3><span class="mini-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78Z"></path></svg></span>Volunteering</h3>
+              <p>I enjoy serving my community through hands-on work when I'm away from my desk.</p>
+            </div>
+            <div class="photo-mosaic" aria-label="Volunteering photo">
+              <figure class="hobby-photo"><img src="assets/volunteering-kitchen.jpg" alt="Joseph Ren volunteering in a community kitchen" loading="lazy" decoding="async"></figure>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="interests">
+      <div class="shell">
+        <div class="section-head">
+          <div class="section-kicker">Interests</div>
+          <div>
+            <h2>Leadership and community</h2>
+            <p class="lead">
+              Activities that reflect contribution beyond formal work experience.
+            </p>
+          </div>
+        </div>
+        <div class="grid three">
+          <article class="card">
+            <span class="placeholder-label">Jan 2026 - Present</span>
+            <h3>Small Group Leader</h3>
+            <p>Organized events and weekly gatherings for 40+ students with UW Chinese Christian Fellowship, coordinating logistics and collaborating with student leaders.</p>
+          </article>
+          <article class="card">
+            <span class="placeholder-label">Sep - Dec 2025</span>
+            <h3>Frosh Cell Leader</h3>
+            <p>Planned weekly events and discussion questions for UW Chinese Christian Fellowship, facilitating smooth execution and a welcoming first-year experience. Supported social-media reels and outreach initiatives that generated 40K+ impressions.</p>
+          </article>
+          <article class="card">
+            <span class="placeholder-label">May - Dec 2025</span>
+            <h3>Intramural Captain</h3>
+            <p>Led a team through two seasonal leagues in UW Dodgeball Intramurals, communicating strategy and reinforcing accountability.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="shell">
+        <div class="contact-band">
+          <div>
+            <h2>Let's connect!</h2>
+            <p>
+              Reach me by email, LinkedIn, or GitHub.
+            </p>
+          </div>
+          <div class="actions">
+            <a class="button" href="https://www.linkedin.com/in/joseph-ren/" target="_blank" rel="noreferrer">Open LinkedIn</a>
+            <a class="button" href="mailto:j93ren@uwaterloo.ca">Email Me</a>
+            <a class="button" href="https://github.com/joseph-ren" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="button" href="./Joseph_Ren_Resume_Cycle_2.pdf">View Resume</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell">
+      &copy; Joseph Ren. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    const canvas = document.getElementById("signalCanvas");
+    const ctx = canvas.getContext("2d");
+    const colors = ["#126b68", "#c95338", "#c49a3a", "#172026"];
+    let points = [];
+
+    function resize() {
+      const rect = canvas.getBoundingClientRect();
+      const ratio = window.devicePixelRatio || 1;
+      canvas.width = Math.floor(rect.width * ratio);
+      canvas.height = Math.floor(rect.height * ratio);
+      ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+      points = Array.from({ length: 42 }, (_, index) => ({
+        x: (index % 7) * rect.width / 6 + Math.random() * 24 - 12,
+        y: Math.floor(index / 7) * rect.height / 6 + Math.random() * 24 - 12,
+        vx: (Math.random() - .5) * .35,
+        vy: (Math.random() - .5) * .35,
+        color: colors[index % colors.length]
+      }));
+    }
+
+    function draw() {
+      const width = canvas.clientWidth;
+      const height = canvas.clientHeight;
+      ctx.clearRect(0, 0, width, height);
+      ctx.globalAlpha = .72;
+
+      for (let i = 0; i < points.length; i += 1) {
+        const a = points[i];
+        a.x += a.vx;
+        a.y += a.vy;
+        if (a.x < 20 || a.x > width - 20) a.vx *= -1;
+        if (a.y < 20 || a.y > height - 20) a.vy *= -1;
+
+        for (let j = i + 1; j < points.length; j += 1) {
+          const b = points[j];
+          const distance = Math.hypot(a.x - b.x, a.y - b.y);
+          if (distance < 138) {
+            ctx.strokeStyle = `rgba(23, 32, 38, ${1 - distance / 138})`;
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      points.forEach((point) => {
+        ctx.fillStyle = point.color;
+        ctx.beginPath();
+        ctx.arc(point.x, point.y, 4.5, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      requestAnimationFrame(draw);
+    }
+
+    window.addEventListener("resize", resize);
+    resize();
+    draw();
+  </script>
+</body>
+</html>
